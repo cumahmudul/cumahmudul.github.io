@@ -105,8 +105,6 @@
     color: var(--gold);
   }
 
-  .hero-text { }
-
   .hero-label {
     font-size: 12px;
     letter-spacing: 4px;
@@ -264,7 +262,7 @@
     font-weight: 400;
   }
 
-  /* ── EDUCATION ── */
+  /* ── EDUCATION & TIMELINE ── */
   .timeline {
     position: relative;
     padding-left: 30px;
@@ -303,7 +301,7 @@
     box-shadow: 0 0 12px rgba(201,168,76,0.5);
   }
 
-  .timeline-card {
+  .timeline-card, .edu-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -503,7 +501,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-grid">
     <div class="hero-photo-wrap">
@@ -514,7 +511,8 @@
     <div class="hero-text">
       <div class="hero-label">পদার্থবিজ্ঞান শিক্ষক ও গবেষক</div>
       <h1 class="hero-name">মাহমুদুল<br><span>হাসান</span></h1>
-      <p class="hero-tagline">পদার্থবিজ্ঞান ও গণিতে বিশেষজ্ঞ, চট্টগ্রাম বিশ্ববিদ্যালয় থেকে এম.এস. সম্পন্নকারী একজন নিবেদিতপ্রাণ শিক্ষক।</p>
+      <p class="hero-tagline">চট্টগ্রাম বিশ্ববিদ্যালয় থেকে পদার্থবিজ্ঞান বিভাগে স্নাতক ও স্নাতকোত্তর সম্পন্ন করা একজন নিবেদিতপ্রাণ ও উদ্যমী শিক্ষক, আমি জটিল বিষয়গুলোকে সহজ, বোধগম্য ও আকর্ষণীয়ভাবে উপস্থাপনে প্রতিশ্রুতিবদ্ধ।
+</p>
       <div class="hero-contacts">
         <a class="contact-item" href="tel:+8801626884582">
           <span class="contact-icon">📞</span> +880 1626-884582
@@ -526,25 +524,23 @@
           <span class="contact-icon">💼</span> linkedin.com/in/cumahmudul
         </a>
         <a class="contact-item" href="#">
-          <span class="contact-icon">📍</span> তাতার্দি, শাখেরগাঁও, মনোহরদী, নরসিংদী
+          <span class="contact-icon">📍</span> তাতারদী, শেখেরগাঁও, মনোহরদী, নরসিংদী
         </a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="#summary">পরিচিতি</a>
-    <a href="#education">শিক্ষা</a>
     <a href="#experience">অভিজ্ঞতা</a>
+    <a href="#education">শিক্ষা</a>
     <a href="#skills">দক্ষতা</a>
     <a href="#personal">ব্যক্তিগত</a>
   </div>
 </nav>
 
-<!-- SUMMARY -->
 <section id="summary">
   <div class="section-header">
     <div class="section-label">About Me</div>
@@ -553,14 +549,47 @@
   </div>
   <div class="summary-card">
     <p class="summary-text">
-      আমি একজন নিবেদিতপ্রাণ এবং বিশ্লেষণাত্মক পদার্থবিজ্ঞান স্নাতক, যিনি পদার্থবিজ্ঞান ও উচ্চতর গণিতে ব্যাপক অভিজ্ঞতা রাখেন। শিক্ষার্থীদের কাছে জটিল বিষয়গুলো সহজ ও আনন্দময়ভাবে উপস্থাপন করাই আমার লক্ষ্য। আধুনিক প্রযুক্তি ও কৃত্রিম বুদ্ধিমত্তার প্রয়োগে শিক্ষাকে আরও কার্যকর করতে আমি সদা সচেষ্ট।
+      আমি মাহমুদুল হাসান, চট্টগ্রাম বিশ্ববিদ্যালয় থেকে পদার্থবিজ্ঞানে স্নাতক ও স্নাতকোত্তর ডিগ্রি অর্জন করেছি। বর্তমানে নরসিংদীর আব্দুল কাদির মোল্লা সিটি কলেজে পদার্থবিজ্ঞানের প্রভাষক হিসেবে কর্মরত। পদার্থবিজ্ঞানের জটিল বিষয়গুলোকে শিক্ষার্থীদের কাছে সহজ, প্রাঞ্জল ও আনন্দদায়ক করে তোলাই আমার মূল লক্ষ্য। আমি বিশ্বাস করি, শিক্ষার সাথে আধুনিক প্রযুক্তি ও কৃত্রিম বুদ্ধিমত্তার (AI) সমন্বয় শিক্ষাদান প্রক্রিয়াকে আরও কার্যকর ও যুগোপযোগী করে তোলে।
     </p>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- EDUCATION -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">কর্মজীবনের অভিজ্ঞতা</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-icon">🏛️</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">আব্দুল কাদির মোল্লা সিটি কলেজ</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">🏫</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">কাপাসিয়া মডেল স্কুল এন্ড কলেজ</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">🎓</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">মনোহরদী মডেল কলেজ — ২০২৩–২০২৪</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <section id="education">
   <div class="section-header">
     <div class="section-label">Education</div>
@@ -621,42 +650,6 @@
 
 <div class="section-divider"></div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <div class="section-label">Experience</div>
-    <h2 class="section-title">কর্মজীবনের অভিজ্ঞতা</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="exp-grid">
-    <div class="exp-card">
-      <div class="exp-icon">🎓</div>
-      <div>
-        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
-        <div class="exp-place">মনোহরদী মডেল কলেজ — ২০২৩–২০২৪</div>
-      </div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon">🏫</div>
-      <div>
-        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
-        <div class="exp-place">কাপাসিয়া মডেল স্কুল এন্ড কলেজ</div>
-      </div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-icon">🏛️</div>
-      <div>
-        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
-        <div class="exp-place">আব্দুল কাদির মোল্লা সিটি কলেজ</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-header">
     <div class="section-label">Skills</div>
@@ -690,7 +683,6 @@
 
 <div class="section-divider"></div>
 
-<!-- PERSONAL -->
 <section id="personal">
   <div class="section-header">
     <div class="section-label">Personal Info</div>
@@ -699,13 +691,6 @@
   </div>
 
   <div class="personal-grid">
-    <div class="info-item">
-      <span style="font-size:24px">🎂</span>
-      <div>
-        <div class="info-label">জন্ম তারিখ</div>
-        <div class="info-value">২৫ জানুয়ারি, ১৯৯৮</div>
-      </div>
-    </div>
     <div class="info-item">
       <span style="font-size:24px">👨</span>
       <div>
@@ -760,7 +745,7 @@
 
 <footer>
   <p>© ২০২৪ <span>মাহমুদুল হাসান</span> — সর্বস্বত্ব সংরক্ষিত</p>
-  <p style="margin-top:8px; font-size:12px;">তাতার্দি, শাখেরগাঁও, মনোহরদী, নরসিংদী</p>
+  <p style="margin-top:8px; font-size:12px;">তাতারদী, শেখেরগাঁও, মনোহরদী, নরসিংদী</p>
 </footer>
 
 </body>
