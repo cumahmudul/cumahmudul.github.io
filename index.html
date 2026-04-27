@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাহমুদুল হাসান — পদার্থবিজ্ঞান শিক্ষক</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep: #0d1f3c;
+    --gold: #c9a84c;
+    --gold-light: #e8c96d;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --text-muted: #8a9ab5;
+    --card-bg: #111e35;
+    --border: rgba(201, 168, 76, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--navy);
+    color: var(--cream);
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 20% 50%, #162a4a 0%, var(--navy) 60%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+    top: -100px; right: -150px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.05);
+    bottom: -80px; left: -100px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+  }
+
+  .hero-photo-ring {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--gold), #7a5c1e, var(--gold-light));
+    box-shadow: 0 0 40px rgba(201,168,76,0.25);
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0%,100% { box-shadow: 0 0 40px rgba(201,168,76,0.25); }
+    50% { box-shadow: 0 0 60px rgba(201,168,76,0.45); }
+  }
+
+  .hero-photo-ring img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--card-bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a2f50, #243d61);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+    color: var(--gold);
+  }
+
+  .hero-text { }
+
+  .hero-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-name span { color: var(--gold); }
+
+  .hero-tagline {
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 420px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .contact-item:hover { color: var(--gold); }
+
+  .contact-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 16px 20px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+  }
+  nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-header {
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .section-line {
+    width: 50px; height: 2px;
+    background: var(--gold);
+    margin-top: 16px;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '❝';
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 80px;
+    color: rgba(201,168,76,0.08);
+    font-family: serif;
+    line-height: 1;
+  }
+
+  .summary-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  /* ── EDUCATION ── */
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.6s forwards;
+  }
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -37px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  }
+
+  .timeline-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .timeline-card:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+
+  .edu-degree {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .edu-institute {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .edu-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 13px;
+    color: var(--gold-light);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .skill-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  }
+
+  .skill-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .skill-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .skill-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .exp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    transition: all 0.3s;
+  }
+  .exp-card:hover {
+    border-color: var(--gold);
+    transform: translateX(6px);
+  }
+
+  .exp-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .exp-role {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .exp-place {
+    font-size: 14px;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  /* ── PERSONAL ── */
+  .personal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .info-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.3s;
+  }
+  .info-item:hover { border-color: rgba(201,168,76,0.4); }
+
+  .info-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .info-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cream);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    max-width: 900px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 650px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 32px;
+      padding: 40px 24px;
+    }
+    .hero-photo-wrap { display: flex; justify-content: center; }
+    .hero-photo-ring { width: 160px; height: 160px; }
+    .hero-contacts { align-items: center; }
+    section { padding: 60px 24px; }
+    nav { padding: 0 16px; }
+    nav a { padding: 14px 12px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <div class="photo-placeholder">👤</div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="hero-label">পদার্থবিজ্ঞান শিক্ষক ও গবেষক</div>
+      <h1 class="hero-name">মাহমুদুল<br><span>হাসান</span></h1>
+      <p class="hero-tagline">পদার্থবিজ্ঞান ও গণিতে বিশেষজ্ঞ, চট্টগ্রাম বিশ্ববিদ্যালয় থেকে এম.এস. সম্পন্নকারী একজন নিবেদিতপ্রাণ শিক্ষক।</p>
+      <div class="hero-contacts">
+        <a class="contact-item" href="tel:+8801626884582">
+          <span class="contact-icon">📞</span> +880 1626-884582
+        </a>
+        <a class="contact-item" href="mailto:mahmudulhassan26@gmail.com">
+          <span class="contact-icon">✉️</span> mahmudulhassan26@gmail.com
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/cumahmudul" target="_blank">
+          <span class="contact-icon">💼</span> linkedin.com/in/cumahmudul
+        </a>
+        <a class="contact-item" href="#">
+          <span class="contact-icon">📍</span> তাতার্দি, শাখেরগাঁও, মনোহরদী, নরসিংদী
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#summary">পরিচিতি</a>
+    <a href="#education">শিক্ষা</a>
+    <a href="#experience">অভিজ্ঞতা</a>
+    <a href="#skills">দক্ষতা</a>
+    <a href="#personal">ব্যক্তিগত</a>
+  </div>
+</nav>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="section-header">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">পেশাদার পরিচিতি</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="summary-card">
+    <p class="summary-text">
+      আমি একজন নিবেদিতপ্রাণ এবং বিশ্লেষণাত্মক পদার্থবিজ্ঞান স্নাতক, যিনি পদার্থবিজ্ঞান ও উচ্চতর গণিতে ব্যাপক অভিজ্ঞতা রাখেন। শিক্ষার্থীদের কাছে জটিল বিষয়গুলো সহজ ও আনন্দময়ভাবে উপস্থাপন করাই আমার লক্ষ্য। আধুনিক প্রযুক্তি ও কৃত্রিম বুদ্ধিমত্তার প্রয়োগে শিক্ষাকে আরও কার্যকর করতে আমি সদা সচেষ্ট।
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">শিক্ষাগত যোগ্যতা</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="edu-degree">মাস্টার অব সায়েন্স (M.S.)</div>
+        <div class="edu-institute">পদার্থবিজ্ঞান বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</div>
+        <div class="edu-meta">
+          <span class="edu-badge">📅 ২০১৯ – ২০২০</span>
+          <span class="edu-badge">⭐ ফলাফল: ৩.৫৬ (৪.০০ এর মধ্যে)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="edu-degree">ব্যাচেলর অব সায়েন্স (B.Sc.)</div>
+        <div class="edu-institute">পদার্থবিজ্ঞান বিভাগ, চট্টগ্রাম বিশ্ববিদ্যালয়</div>
+        <div class="edu-meta">
+          <span class="edu-badge">📅 ২০১৫ – ২০১৬</span>
+          <span class="edu-badge">⭐ ফলাফল: ৩.১৬ (৪.০০ এর মধ্যে)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="edu-degree">উচ্চ মাধ্যমিক সার্টিফিকেট (H.S.C.)</div>
+        <div class="edu-institute">পাঁচকান্দি ডিগ্রি কলেজ, মনোহরদী</div>
+        <div class="edu-meta">
+          <span class="edu-badge">📅 বিজ্ঞান, ২০১৫</span>
+          <span class="edu-badge">⭐ ফলাফল: ৪.৭৫ (৫.০০ এর মধ্যে)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="edu-degree">মাধ্যমিক স্কুল সার্টিফিকেট (S.S.C.)</div>
+        <div class="edu-institute">মনোহরদী পাইলট মডেল হাইস্কুল, মনোহরদী</div>
+        <div class="edu-meta">
+          <span class="edu-badge">📅 বিজ্ঞান, ২০১৩</span>
+          <span class="edu-badge">⭐ ফলাফল: ৫.০০ (৫.০০ এর মধ্যে)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">কর্মজীবনের অভিজ্ঞতা</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-icon">🎓</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">মনোহরদী মডেল কলেজ — ২০২৩–২০২৪</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">🏫</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">কাপাসিয়া মডেল স্কুল এন্ড কলেজ</div>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">🏛️</div>
+      <div>
+        <div class="exp-role">প্রভাষক (পদার্থবিজ্ঞান)</div>
+        <div class="exp-place">আব্দুল কাদির মোল্লা সিটি কলেজ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">দক্ষতা ও প্রযুক্তি</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">⚛️</div>
+      <div class="skill-title">পদার্থবিজ্ঞান ও গণিত</div>
+      <div class="skill-desc">পদার্থবিজ্ঞান, উচ্চতর গণিত ও ICT-তে দক্ষ। জটিল সমস্যা সমাধানে বিশেষজ্ঞ।</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-title">AI ও প্রযুক্তি</div>
+      <div class="skill-desc">ChatGPT ও Gemini-তে বিশেষজ্ঞ। বিভিন্ন প্রেক্ষাপটে AI-এর প্রয়োগ সম্পর্কে গভীর জ্ঞান।</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <div class="skill-title">সফটওয়্যার</div>
+      <div class="skill-desc">MS Word, Excel, PowerPoint এবং SQL ডেটাবেজে দক্ষ।</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🖥️</div>
+      <div class="skill-title">প্রোগ্রামিং</div>
+      <div class="skill-desc">C, C++, HTML এবং CSS প্রোগ্রামিং ভাষায় দক্ষতা সম্পন্ন।</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PERSONAL -->
+<section id="personal">
+  <div class="section-header">
+    <div class="section-label">Personal Info</div>
+    <h2 class="section-title">ব্যক্তিগত তথ্য</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="personal-grid">
+    <div class="info-item">
+      <span style="font-size:24px">🎂</span>
+      <div>
+        <div class="info-label">জন্ম তারিখ</div>
+        <div class="info-value">২৫ জানুয়ারি, ১৯৯৮</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">👨</span>
+      <div>
+        <div class="info-label">পিতার নাম</div>
+        <div class="info-value">মো. রমিজ উদ্দিন আকন্দ</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">👩</span>
+      <div>
+        <div class="info-label">মাতার নাম</div>
+        <div class="info-value">পারভিন আক্তার</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">🕌</span>
+      <div>
+        <div class="info-label">ধর্ম</div>
+        <div class="info-value">ইসলাম</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">💍</span>
+      <div>
+        <div class="info-label">বৈবাহিক অবস্থা</div>
+        <div class="info-value">অবিবাহিত</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">🩸</span>
+      <div>
+        <div class="info-label">রক্তের গ্রুপ</div>
+        <div class="info-value">A (−)</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">📏</span>
+      <div>
+        <div class="info-label">উচ্চতা</div>
+        <div class="info-value">৫ ফুট ৬ ইঞ্চি</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span style="font-size:24px">🇧🇩</span>
+      <div>
+        <div class="info-label">জাতীয়তা</div>
+        <div class="info-value">বাংলাদেশী (জন্মসূত্রে)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© ২০২৪ <span>মাহমুদুল হাসান</span> — সর্বস্বত্ব সংরক্ষিত</p>
+  <p style="margin-top:8px; font-size:12px;">তাতার্দি, শাখেরগাঁও, মনোহরদী, নরসিংদী</p>
+</footer>
+
+</body>
+</html>
